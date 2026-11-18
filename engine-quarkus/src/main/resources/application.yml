@@ -1,0 +1,12 @@
+quarkus:
+  # Configuration du serveur HTTP
+  http:
+    port: 8080
+
+  # Configuration du pool de connexions JDBC (Agroal) vers DuckDB
+  datasource:
+    db-kind: other
+    jdbc:
+      driver: org.duckdb.DuckDBDriver
+      # On pointe vers un fichier local dans ton dossier data-warehouse
+      url: jdbc:duckdb:../data-warehouse/olist.duckdb
