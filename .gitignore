@@ -1,0 +1,19 @@
+# Build & Maven
+**/target/
+.mvn/timing.properties
+
+# IDE (IntelliJ / VS Code)
+.idea/
+*.iml
+.vscode/
+
+# Data Warehouse & Datasets Kaggle (trop lourds pour Git)
+data-warehouse/*.duckdb
+data-warehouse/*.duckdb.wal
+data-warehouse/*.csv
+data-warehouse/*.parquet
+
+# OS & Logs
+.DS_Store
+Thumbs.db
+*.log
