@@ -1,4 +1,4 @@
-package java.com.ilias.datapulse.api;
+package com.ilias.datapulse.api;
 
 public class QueryResource {
 }

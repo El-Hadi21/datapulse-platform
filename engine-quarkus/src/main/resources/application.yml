@@ -2,7 +2,6 @@ quarkus:
   # Configuration du serveur HTTP
   http:
     port: 8080
-
   # Configuration du pool de connexions JDBC (Agroal) vers DuckDB
   datasource:
     db-kind: other
@@ -10,3 +9,14 @@ quarkus:
       driver: org.duckdb.DuckDBDriver
       # On pointe vers un fichier local dans ton dossier data-warehouse
       url: jdbc:duckdb:../data-warehouse/olist.duckdb
+  log:
+    level: INFO
+    console:
+      format: "%d{HH:mm:ss} %-5p [%c{2.}] (%t) %s%e%n"
+    category:
+      "com.ilias.datapulse":
+        level: DEBUG
+
+datapulse:
+  domain:
+    pack-path: ../domain-packs/olist-ecommerce/semantic-dictionary.yaml

@@ -1,4 +1,4 @@
-package java.com.ilias.datapulse.security;
+package com.ilias.datapulse.security;
 
 public interface SqlSecurityRule {
 }
