@@ -17,3 +17,4 @@ data-warehouse/*.parquet
 .DS_Store
 Thumbs.db
 *.log
+DockerCmdForDependcies.txt

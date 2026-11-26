@@ -83,6 +83,20 @@
             <groupId>com.fasterxml.jackson.dataformat</groupId>
             <artifactId>jackson-dataformat-yaml</artifactId>
         </dependency>
+
+        <!-- Mockito + intégration JUnit 5 / Quarkus (@ExtendWith(MockitoExtension.class) et @InjectMock) -->
+        <dependency>
+            <groupId>io.quarkus</groupId>
+            <artifactId>quarkus-junit5-mockito</artifactId>
+            <scope>test</scope>
+        </dependency>
+
+        <!-- JaCoCo natif Quarkus : génère automatiquement le rapport de couverture pour SonarQube -->
+        <dependency>
+            <groupId>io.quarkus</groupId>
+            <artifactId>quarkus-jacoco</artifactId>
+            <scope>test</scope>
+        </dependency>
     </dependencies>
 
     <build>
