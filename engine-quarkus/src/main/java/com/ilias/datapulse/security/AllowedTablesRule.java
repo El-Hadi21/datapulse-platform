@@ -13,7 +13,7 @@ import java.util.Set;
 public class AllowedTablesRule implements SqlSecurityRule {
 
     private static final Logger LOG = Logger.getLogger(AllowedTablesRule.class);
-    private static final String DEFAULT_SCHEMA = "main";
+    private static final String DEFAULT_SCHEMA = "gold";
 
     @Override
     public void apply(Statement statement, DomainPack domainPack) {

@@ -67,7 +67,7 @@ class SqlValidationPipelineTest {
 
     @Test
     void shouldAllowJoinOnAuthorizedTablesWithDefaultSchemaAndCaseInsensitivity() {
-        String sql = "SELECT o.order_id FROM main.\"FACT_ORDERS\" o JOIN dim_customers c ON o.customer_id = c.customer_id";
+        String sql = "SELECT o.order_id FROM gold.\"FACT_ORDERS\" o JOIN dim_customers c ON o.customer_id = c.customer_id";
 
         String sanitized = pipeline.validateAndSanitize(sql);
 
@@ -133,16 +133,17 @@ class SqlValidationPipelineTest {
     @ParameterizedTest
     @ValueSource(strings = {
             "SELECT * FROM read_csv('/etc/passwd')",
-            "SELECT * FROM duckdb_tables()",
+            "SELECT * FROM pg_tables",
             "SELECT 1"
     })
-    void shouldRejectQueriesWithoutAuthorizedTablesOrUsingDuckDbFunctions(String systemFunctionSql) {
+    void shouldRejectQueriesWithoutAuthorizedTablesOrUsingSystemObjects(String systemFunctionSql) {
         assertThrows(SqlSecurityException.class, () -> pipeline.validateAndSanitize(systemFunctionSql));
     }
 
     @ParameterizedTest
     @ValueSource(strings = {
-            "SELECT * FROM information_schema.tables",
+            "SELECT * FROM pg_catalog.pg_tables",
+            "SELECT * FROM main.fact_orders",
             "SELECT * FROM other_schema.fact_orders"
     })
     void shouldRejectUnauthorizedSchemas(String forbiddenSchemaSql) {
